@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}books{% endblock %}
+
+{% block head %}
+{{ super() }}
+<style type="text/css">
+    .alltext {
+        color: #336699;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="col">
+    <div class="card" style="width:400px;height:400px;">
+      <img class="card-img-top" src="/static/book.jpg" alt="book photo" style="width:100px;height:100px;">
+      <div class="card-body">
+        <h5 class="card-title">book name: {{book.book_name}} </h5>
+        <p class="card-text"> book Author: {{book.book_author}} <br>
+          publish date: {{book.publish_date}} <br>
+          book type: {{book.book_type}} </p>
+      </div>
+   </div>
+</div>
+
+
+
+
+{% endblock %}

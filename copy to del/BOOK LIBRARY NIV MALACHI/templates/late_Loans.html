@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}loan{% endblock %}
+
+{% block head %}
+{{ super() }}
+<style type="text/css">
+  .alltext {
+    color: #336699;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+&nbsp; <a href="add_loan"><button type="button" class="btn btn-secondary">add loan</button></a>
+<a href="late_loans"><button type="button" class="btn btn-secondary">late loans</button></a><br><br>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for loan in lateLoan %}
+  <div class="col">
+    <div class="card">
+      <img class="card-img-top" src="/static/loan_book.jpg" alt="loan photo" style="width:100px;height:100px;">
+      <div class="card-body">
+        <h5 class="card-title">loan_id: {{loan.loan_id}}</h5>
+        <p class="card-text"> book id: {{loan.book_id}} <br>
+          member_id: {{loan.member_id}} <br>
+          loan date: {{loan.loan_date}} <br>
+          return date: {{loan.return_date}} <br>
+          </p>
+        </div>
+      <a class="btn btn-success" href="/loan/DELETE/{{loan.loan_id}}">return late loan</a>
+    </div>
+  </div>
+
+
+  {% endfor %}
+</div>
+
+
+
+
+{% endblock %}
+
+
+
+

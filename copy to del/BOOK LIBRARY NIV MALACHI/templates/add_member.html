@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}member{% endblock %}
+
+{% block head %}
+{{ super() }}
+<style type="text/css">
+    .alltext {
+        color: #336699;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<form style="background-color:rgb(255, 255, 255)" method="post"  action="/add_member/"> 
+    <label for="member_name">Name: </label>
+    <input type="text" name="memberName" placeholder="member name">
+    <hr>
+    <label for="member_age">Age: </label>
+    <input type="number" name="memberAge" placeholder="member age" min="1" max="120">
+    <hr>
+    <label for="member_city">City: </label>
+    <input type="text" name="memberCity" placeholder="member city">
+    <hr>
+    <button class="btn btn-outline-dark" type="submit">Submit</button>
+</form>
+{% endblock %}
+

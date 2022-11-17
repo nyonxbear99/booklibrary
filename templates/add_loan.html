@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %} loans {% endblock %}
+
+{% block head %}
+{{ super() }}
+<style type="text/css">
+    .alltext {
+        color: #336699;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<form style="background-color:rgb(255, 255, 255)" method="post"  action="/add_loan"> 
+    &nbsp; type book name: <input name="book_name" type="text"> <hr>
+    &nbsp; type member id: <input name="member_id" type="number">
+    &nbsp; <button class="btn btn-success" type="submit">submit your form</button>
+</form>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}members{% endblock %}
+
+{% block head %}
+{{ super() }}
+<style type="text/css">
+  .alltext {
+    color: #336699;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row g-0">
+    <div class="col-sm-6 col-md-3">
+      <form action="/search_member/" method="post">
+        <input type="text" placaeholder="search member" name="member_name">
+        <button type="submit">search</button>
+      </form>
+    </div>
+    <div class="col-6 col-md-9"><a href="/add_member/"><button type="button" class="btn btn-secondary">add
+          member</button></a>
+    </div>
+  </div>
+  <br>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for selected in all_member %}
+    <div class="col">
+      <div class="card">
+        <img class="card-img-top" src="/static/user.png" alt="member photo" style="width:100px;height:100px;">
+        <div class="card-body">
+          <h5 class="card-title">member name: {{selected.member_name}}</h5>
+          <p class="card-text"> member id: {{selected.member_id}} <br>
+            member age: {{selected.member_age}} <br>
+            member city: {{selected.member_city}}</p>
+        </div>
+        <a class="btn btn-danger" href="/member/DELETE/{{selected.member_id}}">Delete</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+
+
+&nbsp;
+&nbsp;
+
+
+
+
